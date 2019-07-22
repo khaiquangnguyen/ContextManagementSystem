@@ -1,0 +1,14 @@
+.overlaybar{
+  display : flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 80px;
+  background-color: gray;
+  margin: auto;
+  margin-top: 40%;
+}
+
+
+

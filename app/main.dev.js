@@ -72,9 +72,8 @@ app.on('ready', async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1200,
-    height: 300
-    // frame: false
+    center: true,
+    // frame: false,
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);
@@ -86,8 +85,9 @@ app.on('ready', async () => {
       throw new Error('"mainWindow" is not defined');
     }
     if (process.env.START_MINIMIZED) {
-      mainWindow.minimize();
+      mainWindow.maximize();
     } else {
+      mainWindow.maximize();
       mainWindow.show();
       mainWindow.focus();
     }
