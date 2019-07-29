@@ -1,4 +1,4 @@
 {
-  "OVERLAY": "/",
-  "APP": "/app"
+  "OVERLAY": "/OVERLAY",
+  "MAIN": "/"
 }

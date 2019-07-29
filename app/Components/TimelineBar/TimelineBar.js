@@ -1,9 +1,10 @@
 // @flow
 import React, { Component } from 'react';
-import OverlayBar from '../components/OverlayBar'
+import OverlayBar from '../Overlay';
+
 type Props = {};
 
-export default class Overlay extends Component<Props> {
+export default class TimelineBar extends Component<Props> {
   props: Props;
 
   render() {

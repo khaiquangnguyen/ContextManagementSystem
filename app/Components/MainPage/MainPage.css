@@ -1,0 +1,39 @@
+.MainPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: stretch;
+  width: 100vw;
+  height: 100vh;
+  background-color: lightblue;
+}
+
+.CenterSection {
+  flex-basis: 75%;
+  display:flex;
+  flex-direction: column;
+}
+.ProjectNameBar {
+  flex-basis: 5%;
+  background-color: lightgreen;
+}
+
+.TimelineBar {
+  flex-basis: 15%;
+  background-color: lightcoral;
+}
+
+.PreviewSection {
+  flex-basis: 50%;
+  background-color: lightgray;
+}
+
+.MemoSection {
+  flex-basis: 50%;
+  background-color: lightseagreen;
+}
+
+.PluginBar {
+flex-basis: 5%;
+background-color: lightsalmon;
+}
