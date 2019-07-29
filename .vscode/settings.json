@@ -31,5 +31,22 @@
     "test/**/__snapshots__": true,
     "yarn.lock": true
   },
-  "jshint.lintHTML": true
+  "jshint.lintHTML": true,
+  "files.exclude": {
+    ".dock*": true,
+    ".es*": true,
+    ".git*": true,
+    "appveyor.yml": true,
+    "CHANGELOG.md": true,
+    "configs": true,
+    "dll": true,
+    "flow-typed": true,
+    "internals": true,
+    "LICENSE": true,
+    "node_modules/": true,
+    "README.md": true,
+    "release": true
+  },
+  "editor.tabSize": 8,
+  "cSpell.words": ["lightgray", "lightgreen", "lightsalmon", "lightseagreen"]
 }
