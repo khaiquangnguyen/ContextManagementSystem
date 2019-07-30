@@ -8,8 +8,6 @@ import PluginBar from './PluginBar/PluginBar';
 import MemoSection from './MemoSection';
 import TimelineBar from './TimelineBar';
 
-type Props = {};
-
 const MainSection = styled.section`
   display: flex;
   flex-direction: row;
@@ -26,9 +24,7 @@ const MidSection = styled.section`
   flex-direction: column;
 `;
 
-export default class MainPage extends Component<Props> {
-  props: Props;
-
+export default class MainPage extends Component{
   render() {
     return (
       <MainSection>
