@@ -4,7 +4,7 @@ import {
   SELECT_PROJECT
 } from '../actions/ProjectDBActions';
 
-export function projectDB(state = {}, action) {
+export default function projectDB(state = [], action) {
   switch (action.type) {
     case ADD_PROJECT:
       return state;

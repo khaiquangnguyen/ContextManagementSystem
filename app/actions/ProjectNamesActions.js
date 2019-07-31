@@ -6,19 +6,19 @@ export function addProject(name) {
   return {
     type: ADD_PROJECT,
     name
-  }
+  };
 }
 
-export function removeProject(name) {
+export function removeProject(id) {
   return {
     type: REMOVE_PROJECT,
-    name
-  }
+    id
+  };
 }
 
-export function selectProject(name) {
+export function selectProject(id) {
   return {
     type: SELECT_PROJECT,
-    name
-  }
+    id
+  };
 }

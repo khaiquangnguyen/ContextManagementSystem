@@ -4,7 +4,7 @@ import {
   SELECT_PLUGIN
 } from '../actions/PluginActions';
 
-export function plugins(state = {}, action) {
+export default function plugins(state = {}, action) {
   switch (action.type) {
     case ADD_PLUGIN:
       return state;

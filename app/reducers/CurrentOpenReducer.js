@@ -3,7 +3,7 @@ import {
   REMOVE_SCREEN
 } from '../actions/CurrentOpenActions';
 
-export function currOpenScreens(state = {}, action) {
+export default function currOpenScreens(state = [], action) {
   switch (action.type) {
     case ADD_SCREEN:
       return state;

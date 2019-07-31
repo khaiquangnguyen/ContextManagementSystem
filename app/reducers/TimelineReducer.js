@@ -9,7 +9,7 @@ import {
   PAUSE,
   STOP,
 } from '../actions/TimelineActions';
-export function timeline(state = {}, action) {
+export default function timeline(state = [], action) {
   switch (action.type) {
     case SELECT_SESSION:
       return state;

@@ -6,19 +6,19 @@ export function selectPlugin(plugin) {
   return {
     type: SELECT_PLUGIN,
     plugin
-  }
+  };
 }
 
 export function addPlugin(plugin) {
   return {
     type: ADD_PLUGIN,
     plugin
-  }
+  };
 }
 
 export function removePlugin(plugin) {
   return {
     type: REMOVE_PLUGIN,
     plugin
-  }
+  };
 }

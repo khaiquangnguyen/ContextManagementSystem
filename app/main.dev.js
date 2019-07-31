@@ -13,8 +13,13 @@
 
 /* jshint esversion: 6 */
 
-import { app, BrowserWindow } from 'electron';
-import { autoUpdater } from 'electron-updater';
+import {
+  app,
+  BrowserWindow
+} from 'electron';
+import {
+  autoUpdater
+} from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 
@@ -74,6 +79,7 @@ app.on('ready', async () => {
     show: false,
     center: true,
     // frame: false,
+    transparent: true
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);

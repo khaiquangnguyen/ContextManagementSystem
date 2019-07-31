@@ -6,19 +6,19 @@ export function addVoiceMemo(recording) {
   return {
     type: ADD_VOICE_MEMO,
     recording
-  }
+  };
 }
 
 export function addTextMemo(text) {
   return {
     type: ADD_TEXT_MEMO,
     text
-  }
+  };
 }
 
 export function removeMemo(id) {
   return {
     type: REMOVE_MEMO,
     id
-  }
+  };
 }
