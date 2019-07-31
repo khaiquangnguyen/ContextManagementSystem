@@ -13,7 +13,8 @@ export default function memos(state = [], action) {
         text: action.text,
         voice: null,
         selected: false,
-        id: newID
+        id: newID,
+        date: new Date()
       };
       const newState = [...state, newMemo];
       return newState;
@@ -24,7 +25,8 @@ export default function memos(state = [], action) {
         text: null,
         voice: action.recording,
         selected: false,
-        id: newID
+        id: newID,
+        date: new Date()
       };
       const newState = [...state, newMemo];
       return newState;

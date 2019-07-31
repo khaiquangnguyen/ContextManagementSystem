@@ -1,40 +1,32 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
+import dateFormat from 'dateformat';
 
 const Container = styled.div`
   background-color: red;
   display: inline;
-  width: 20vw;
-  height: 10vw;
+  width: 20 vw;
+  height: 8vw;
   margin: 0.5vw;
-  display:flex;
-  flex-flow:row nowrap;
+  display: flex;
+  flex-flow: row nowrap;
 `;
 const Icon = styled.img`
   width: 3vw;
-  height: 10vw;
+  height: 8vw;
   margin: 0;
   padding: 2px;
   background-color: blue;
 `;
 
-const Title = styled.div`
-  width: 20vw;
-  height: 2vw;
-  margin: 0;
-  padding: 5px;
-  background-color: black;
-`;
-
 const ContentContainer = styled.div`
   width: 17vw;
-  height: 10vw;
+  height: 8vw;
   margin: 0;
   padding: 2px;
-  background-color: yellow;
-  display:flex;
+  background-color: brown;
+  display: flex;
   flex-flow: column nowrap;
 `;
 
@@ -43,15 +35,15 @@ const MetaData = styled.div``;
 const Controls = styled.div``;
 export default class Memo extends Component {
   render() {
+    const { memo } = this.props;
+    const dateString = dateFormat(memo.date);
     return (
       <Container>
         <Icon />
         <ContentContainer>
-          <Title />
-          <Content />
-          <MetaData />
+          <Content> {memo.text}</Content>
+          <MetaData>{dateString}</MetaData>
         </ContentContainer>
-
       </Container>
     );
   }

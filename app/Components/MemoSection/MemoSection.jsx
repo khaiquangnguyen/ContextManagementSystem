@@ -1,8 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import Memo from './Memo';
-type Props = {};
+
 const Container = styled.section`
   display: flex;
   flex-direction: column;
@@ -11,14 +12,20 @@ const Container = styled.section`
   align-items: center;
 `;
 
-export default class MemoSection extends Component<Props> {
-  props: Props;
-
+class MemoSection extends Component {
   render() {
-    return (
-      <Container>
-        <Memo></Memo>
-      </Container>
-    );
+    const memos = [];
+    const { props } = this;
+    props.memos.forEach(memo => {
+      memos.push(<Memo memo={memo} />);
+    });
+    return <Container>{memos}</Container>;
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    memos: state.memos
+  };
+}
+export default connect(mapStateToProps)(MemoSection);

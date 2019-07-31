@@ -7,9 +7,9 @@ export function addScreen(screen) {
     screen
   };
 }
-export function remove(screen) {
+export function remove(id) {
   return {
     type: REMOVE_SCREEN,
-    screen
+    id
   };
 }

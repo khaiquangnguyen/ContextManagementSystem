@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import ProjectNameBar from './ProjectNameBar';
 import CurrentOpenSection from './CurrentOpenSection';
 import MemoSection from '../MemoSection';
@@ -11,7 +10,13 @@ import {
   removeProject,
   selectProject
 } from '../../actions/ProjectNamesActions';
+import {
+  addTextMemo,
+  addVoiceMemo,
+  removeMemo
+} from '../../actions/MemoActions';
 
+import {addScreen,removeScreen} from '../../actions/CurrentOpenActions';
 const Overlay = styled.section`
   display: flex;
   flex-direction: row;
@@ -29,7 +34,9 @@ class OverlayPage extends Component {
     props.addProject('Project 1');
     props.addProject('Project 2');
     props.addProject('Project 3');
-    props.removeProject('Project 1');
+    props.addTextMemo('this is a memo');
+    props.addTextMemo('this is another memo');
+    props.
   }
 
   render() {
@@ -45,5 +52,14 @@ class OverlayPage extends Component {
 
 export default connect(
   null,
-  { addProject, removeProject, selectProject }
+  {
+    addProject,
+    removeProject,
+    selectProject,
+    addTextMemo,
+    addVoiceMemo,
+    removeMemo,
+    addScreen,
+    removeScreen
+  }
 )(OverlayPage);
