@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import dateFormat from 'dateformat';
-import IconButton from 'react-uwp/IconButton';
 import { connect } from 'react-redux';
 import { editMemo } from '../../actions/MemoActions';
 
@@ -65,10 +64,7 @@ class Memo extends Component {
     console.log(editMemo);
     return (
       <Container>
-        <ControlContainer>
-          <IconButton size="35">Play</IconButton>
-          <IconButton size="35">Delete</IconButton>
-        </ControlContainer>
+        <ControlContainer />
         <ContentContainer>
           <Content
             defaultValue={memo.text}

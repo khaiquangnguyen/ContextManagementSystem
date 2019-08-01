@@ -72,9 +72,9 @@ app.on('ready', async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    center: true
-    // frame: false,
-    // transparent: true
+    center: true,
+    frame: true,
+    transparent: true
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);

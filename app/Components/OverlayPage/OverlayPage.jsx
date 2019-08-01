@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import * as PropTypes from 'prop-types';
 import ProjectNameBar from './ProjectNameBar';
 import CurrentOpenSection from './CurrentOpenSection';
 import MemoSection from '../MemoSection';
@@ -31,10 +30,7 @@ const Overlay = styled.section`
   background:transparent;
 `;
 class OverlayPage extends Component {
-  context: { theme: ReactUWP.ThemeType };
 
-  // eslint-disable-next-line react/forbid-prop-types
-  static contextTypes = { theme: PropTypes.object };
   componentDidMount() {
     const { props } = this;
     props.addProject('Project 1');
@@ -47,13 +43,8 @@ class OverlayPage extends Component {
   }
 
   render() {
-    const { theme } = this.context;
     return (
-      <Overlay
-        style={{
-          background: theme.acrylicTexture40.background
-        }}
-      >
+      <Overlay>
         <ProjectNameBar />
         <CurrentOpenSection />
         <MemoSection />

@@ -2,48 +2,36 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import * as PropTypes from 'prop-types';
-import Separator from 'react-uwp/Separator';
 import {
   addProject,
   removeProject,
   selectProject
 } from '../../../actions/ProjectNamesActions';
 import ProjectNameItem from './ProjectNameItem';
+
 const Container = styled.section`
   display: block;
   flex-basis: 10vw;
-  background:none;
+  background: none;
   align-items: center;
 `;
 
 const Title = styled.h1`
-  margin:1vw;
+  margin: 1vw;
   font-size: 18px;
 `;
 
-
 class ProjectNameBar extends Component {
-  context: { theme: ReactUWP.ThemeType };
-
-  // eslint-disable-next-line react/forbid-prop-types
-  static contextTypes = { theme: PropTypes.object };
-
   render() {
-    const { theme } = this.context;
     const thumbnails = [];
     const { props } = this;
     props.projects.forEach(element => {
-      thumbnails.push(<ProjectNameItem name = {element.name}></ProjectNameItem>);
-      thumbnails.push(<Separator></Separator>)
+      thumbnails.push(<ProjectNameItem name={element.name} />);
     });
 
     return (
-      <Container
-        style={{background: theme.acrylicTexture60.background}}
-      >
+      <Container>
         <Title> PROJECTS </Title>
-        <Separator></Separator>
         {thumbnails}
         <button
           type="submit"
@@ -51,7 +39,7 @@ class ProjectNameBar extends Component {
             props.addProject('Project 1');
           }}
         >
-         Click Me!
+          Click Me!
         </button>
       </Container>
     );
