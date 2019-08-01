@@ -2,7 +2,8 @@ import { generate } from 'shortid';
 import {
   ADD_TEXT_MEMO,
   ADD_VOICE_MEMO,
-  REMOVE_MEMO
+  REMOVE_MEMO,
+  EDIT_MEMO
 } from '../actions/MemoActions';
 
 export default function memos(state = [], action) {
@@ -33,6 +34,17 @@ export default function memos(state = [], action) {
     }
     case REMOVE_MEMO: {
       const newState = state.filter(memo => memo.id !== action.id);
+      return newState;
+    }
+    case EDIT_MEMO: {
+      const newState = [...state];
+      for (let i = 0; i < newState.length; i += 1) {
+        if (newState[i].id === action.id) {
+          newState[i].text = action.text;
+          break;
+        }
+      }
+      console.log(newState);
       return newState;
     }
     default:

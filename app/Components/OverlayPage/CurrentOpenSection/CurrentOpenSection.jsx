@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import ApplicationThumbnail from './ApplicationThumbnail';
 
 type Props = {};
@@ -14,18 +15,24 @@ const Container = styled.section`
   align-content: start;
   justify-content: space-between;
   padding: 1vw;
+  background: none;
 `;
-export default class CurrentOpenSection extends Component<Props> {
+class CurrentOpenSection extends Component<Props> {
   props: Props;
 
   render() {
-    return (
-      <Container>
-        <ApplicationThumbnail />
-        <ApplicationThumbnail />
-        <ApplicationThumbnail />
-        <ApplicationThumbnail />
-      </Container>
-    );
+    const screens = [];
+    const { props } = this;
+    props.screens.forEach(screen => {
+      screens.push(<ApplicationThumbnail screen={screen} />);
+    });
+    return <Container>{screens}</Container>;
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    screens: state.currOpenScreens
+  };
+}
+export default connect(mapStateToProps)(CurrentOpenSection);

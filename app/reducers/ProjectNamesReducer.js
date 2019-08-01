@@ -1,8 +1,11 @@
-import { generate } from 'shortid';
+import {
+  generate
+} from 'shortid';
 import {
   ADD_PROJECT,
   REMOVE_PROJECT,
-  SELECT_PROJECT
+  SELECT_PROJECT,
+  EDIT_PROJECT
 } from '../actions/ProjectNamesActions';
 
 export default function projectList(state = [], action) {
@@ -32,6 +35,9 @@ export default function projectList(state = [], action) {
         });
       });
       return newState;
+    }
+    case EDIT_PROJECT: {
+      return state;
     }
     default:
       return state;

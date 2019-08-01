@@ -2,26 +2,59 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import SplitViewCommand from 'react-uwp/SplitViewCommand';
-
+import * as PropTypes from 'prop-types';
+import Separator from 'react-uwp/Separator';
+import {
+  addProject,
+  removeProject,
+  selectProject
+} from '../../../actions/ProjectNamesActions';
+import ProjectNameItem from './ProjectNameItem';
 const Container = styled.section`
-  display: flex;
-  flex-direction: column;
-  flex-basis: 15vw;
-  background-color: black;
+  display: block;
+  flex-basis: 10vw;
+  background:none;
   align-items: center;
 `;
 
+const Title = styled.h1`
+  margin:1vw;
+  font-size: 18px;
+`;
+
+
 class ProjectNameBar extends Component {
+  context: { theme: ReactUWP.ThemeType };
+
+  // eslint-disable-next-line react/forbid-prop-types
+  static contextTypes = { theme: PropTypes.object };
+
   render() {
+    const { theme } = this.context;
     const thumbnails = [];
     const { props } = this;
     props.projects.forEach(element => {
-      thumbnails.push(
-        <SplitViewCommand label={element.name} icon="PrintLegacy" />
-      );
+      thumbnails.push(<ProjectNameItem name = {element.name}></ProjectNameItem>);
+      thumbnails.push(<Separator></Separator>)
     });
-    return <Container>{thumbnails}</Container>;
+
+    return (
+      <Container
+        style={{background: theme.acrylicTexture60.background}}
+      >
+        <Title> PROJECTS </Title>
+        <Separator></Separator>
+        {thumbnails}
+        <button
+          type="submit"
+          onClick={() => {
+            props.addProject('Project 1');
+          }}
+        >
+         Click Me!
+        </button>
+      </Container>
+    );
   }
 }
 
@@ -30,4 +63,7 @@ function mapStateToProps(state) {
     projects: state.projectNames
   };
 }
-export default connect(mapStateToProps)(ProjectNameBar);
+export default connect(
+  mapStateToProps,
+  { addProject, removeProject, selectProject }
+)(ProjectNameBar);

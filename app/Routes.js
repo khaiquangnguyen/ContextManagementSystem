@@ -8,8 +8,8 @@ import MainPage from './Components/MainPage';
 export default () => (
   <App>
     <Switch>
-      <Route path={routes.MAIN} component={MainPage} />{' '}
-      <Route path={routes.OVERLAY} component={OverlayPage} />{' '}
-    </Switch>{' '}
+      <Route path={routes.MAIN} component={MainPage} />
+      <Route path={routes.OVERLAY} component={OverlayPage} />
+    </Switch>
   </App>
 );

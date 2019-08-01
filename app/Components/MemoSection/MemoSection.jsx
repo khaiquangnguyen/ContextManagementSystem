@@ -3,13 +3,20 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Memo from './Memo';
+import {
+  addTextMemo,
+  addVoiceMemo,
+  removeMemo
+} from '../../actions/MemoActions';
 
 const Container = styled.section`
-  display: flex;
-  flex-direction: column;
-  flex-basis: 20vw;
-  background-color: lightpink;
-  align-items: center;
+  display: block;
+  width: 25vw;
+  background: none;
+  align-items: start;
+  align-content: center;
+  margin-right: 1vw;
+  overflow: auto;
 `;
 
 class MemoSection extends Component {
@@ -19,7 +26,19 @@ class MemoSection extends Component {
     props.memos.forEach(memo => {
       memos.push(<Memo memo={memo} />);
     });
-    return <Container>{memos}</Container>;
+    return (
+      <Container>
+        <button
+          type="submit"
+          onClick={() => {
+            props.addTextMemo('Project 1');
+          }}
+        >
+          Click Me!
+        </button>
+        {memos}
+      </Container>
+    );
   }
 }
 
@@ -28,4 +47,7 @@ function mapStateToProps(state) {
     memos: state.memos
   };
 }
-export default connect(mapStateToProps)(MemoSection);
+export default connect(
+  mapStateToProps,
+  { addTextMemo, addVoiceMemo, removeMemo }
+)(MemoSection);
