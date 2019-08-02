@@ -27,10 +27,24 @@ const Overlay = styled.section`
   align-content: stretch;
   width: 100vw;
   height: 100vh;
-  background:transparent;
+  background:none;
 `;
-class OverlayPage extends Component {
 
+const Background = styled.div`
+  position: fixed; /* Sit on top of the page content */
+  width: 100vw; /* Full width (cover the whole page) */
+  height: 100vh; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+  z-index: -10000; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  filter: blur(2px);
+`;
+
+class OverlayPage extends Component {
   componentDidMount() {
     const { props } = this;
     props.addProject('Project 1');
@@ -44,11 +58,14 @@ class OverlayPage extends Component {
 
   render() {
     return (
-      <Overlay>
-        <ProjectNameBar />
-        <CurrentOpenSection />
-        <MemoSection />
-      </Overlay>
+      <>
+        <Background> </Background>
+        <Overlay>
+          <ProjectNameBar />
+          <CurrentOpenSection />
+          <MemoSection />
+        </Overlay>
+      </>
     );
   }
 }

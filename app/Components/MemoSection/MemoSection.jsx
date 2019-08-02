@@ -8,6 +8,7 @@ import {
   addVoiceMemo,
   removeMemo
 } from '../../actions/MemoActions';
+import { TextField } from 'office-ui-fabric-react/lib/TextField';
 
 const Container = styled.section`
   display: block;
@@ -28,6 +29,8 @@ class MemoSection extends Component {
     });
     return (
       <Container>
+        <TextField label="With auto adjusting height" multiline autoAdjustHeight />
+
         <button
           type="submit"
           onClick={() => {

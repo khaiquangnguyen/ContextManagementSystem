@@ -6,22 +6,26 @@ import ProjectNameBar from './ProjectNameBar';
 import PreviewSection from './PreviewSection';
 import PluginBar from './PluginBar/PluginBar';
 import MemoSection from './MemoSection';
-import TimelineBar from './TimelineBar';
 
 const MainSection = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-content: stretch;
-  width: 100vw;
+  padding:0;
+  width: auto;
   height: 100vh;
-  background-color: lightblue;
+  background-color:#f0f0f0;
 `;
 
 const MidSection = styled.section`
-  flex-basis: 60vw;
   display: flex;
   flex-direction: column;
+  flex-basis:60vw;
+  margin-left:0.5vw;
+  margin-right:0.5vw;
+  align-items: flex-center;
+  align-content:flex-center;
 `;
 
 export default class MainPage extends Component{
@@ -31,7 +35,6 @@ export default class MainPage extends Component{
         <ProjectNameBar />
         <MidSection>
           <PreviewSection />
-          <TimelineBar />
           <MemoSection />
         </MidSection>
         <PluginBar />

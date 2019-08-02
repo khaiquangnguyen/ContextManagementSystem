@@ -2,6 +2,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { Separator } from 'office-ui-fabric-react/lib/Separator';
+import { PrimaryButton } from 'office-ui-fabric-react';
+
 import {
   addProject,
   removeProject,
@@ -13,6 +16,7 @@ const Container = styled.section`
   display: block;
   flex-basis: 10vw;
   background: none;
+  margin-left: 2vw;
   align-items: center;
 `;
 
@@ -33,14 +37,14 @@ class ProjectNameBar extends Component {
       <Container>
         <Title> PROJECTS </Title>
         {thumbnails}
-        <button
+        <PrimaryButton
           type="submit"
           onClick={() => {
             props.addProject('Project 1');
           }}
         >
-          Click Me!
-        </button>
+          Add Project
+        </PrimaryButton>
       </Container>
     );
   }

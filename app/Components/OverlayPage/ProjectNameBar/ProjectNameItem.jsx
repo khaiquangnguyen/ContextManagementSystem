@@ -17,6 +17,7 @@ const Container = styled.div`
   padding: 0;
   font-size: 15px;
   overflow: hidden;
+  color:white;
   white-space: nowrap;
 `;
 

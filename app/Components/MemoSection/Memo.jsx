@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import dateFormat from 'dateformat';
 import { connect } from 'react-redux';
 import { editMemo } from '../../actions/MemoActions';
+import { Depths } from '@uifabric/fluent-theme/lib/fluent/FluentDepths';
 
 const Container = styled.div`
   background-color: #303030;
@@ -34,15 +35,17 @@ const ContentContainer = styled.div`
   display: block;
 `;
 
-const Content = styled.textarea`
+const Content = styled.div`
   width: 17vw;
   height: 6vw;
   background: none;
   font-size: 15px;
-  color: #ffffff;
   border: none;
   resize: none;
   font-family: 'Segoe UI';
+  overflow-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 const MetaData = styled.div`
   width: 17vw;
@@ -63,15 +66,17 @@ class Memo extends Component {
     const dateString = dateFormat(memo.date);
     console.log(editMemo);
     return (
-      <Container>
+      <Container style={{ boxShadow: Depths.depth4 }}>
         <ControlContainer />
         <ContentContainer>
           <Content
-            defaultValue={memo.text}
-            onChange={e => {
-              editMemo(memo.id, e.target.value);
-            }}
-          />
+            // defaultValue={memo.text}
+            // onChange={e => {
+            //   editMemo(memo.id, e.target.value);
+            // }}
+          >
+            {memo.text}
+          </Content>
           <MetaData>{dateString}</MetaData>
         </ContentContainer>
       </Container>
